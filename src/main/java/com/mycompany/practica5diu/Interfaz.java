@@ -11,13 +11,11 @@ package com.mycompany.practica5diu;
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    int colorsSelected;
     /**
      * Creates new form Interfaz
      */
     public Interfaz() {
         initComponents();
-        colorsSelected =3;
     }
 
     /**
@@ -263,7 +261,7 @@ public class Interfaz extends javax.swing.JFrame {
             cRojo.setSelected(true);
             cVerde.setSelected(true);
             cAzul.setSelected(true);
-            lienzo.changeColor(3,new boolean[]{true, true, true});
+            lienzo.changeColor(new boolean[]{true, true, true});
         }
         cTodos.setSelected(true);
     }//GEN-LAST:event_cTodosActionPerformed
@@ -273,18 +271,16 @@ public class Interfaz extends javax.swing.JFrame {
             if(cVerde.isSelected() || cAzul.isSelected()){
                 cRojo.setSelected(false);
                 cTodos.setSelected(false);
-                colorsSelected--;
-                lienzo.changeColor(colorsSelected, new boolean[]{false, cVerde.isSelected(), cAzul.isSelected()});
+                lienzo.changeColor( new boolean[]{false, cVerde.isSelected(), cAzul.isSelected()});
             }else{
                 cRojo.setSelected(true);
             }
         }else{
-            colorsSelected++;
             cRojo.setSelected(true);
             if(cVerde.isSelected() && cAzul.isSelected()){
                 cTodos.setSelected(true);
             }
-            lienzo.changeColor(colorsSelected, new boolean[]{true, cVerde.isSelected(), cAzul.isSelected()});
+            lienzo.changeColor( new boolean[]{true, cVerde.isSelected(), cAzul.isSelected()});
         }
     }//GEN-LAST:event_cRojoActionPerformed
 
@@ -293,18 +289,16 @@ public class Interfaz extends javax.swing.JFrame {
             if(cRojo.isSelected() || cAzul.isSelected()){
                 cVerde.setSelected(false);
                 cTodos.setSelected(false);
-                colorsSelected--;
-                lienzo.changeColor(colorsSelected, new boolean[]{cRojo.isSelected(), false, cAzul.isSelected()});
+                lienzo.changeColor( new boolean[]{cRojo.isSelected(), false, cAzul.isSelected()});
             }else{
                 cVerde.setSelected(true);
             }
         }else{
-            colorsSelected++;
             cVerde.setSelected(true);
             if(cRojo.isSelected() && cAzul.isSelected()){
                 cTodos.setSelected(true);
             }
-            lienzo.changeColor(colorsSelected, new boolean[]{cRojo.isSelected(), true, cAzul.isSelected()});
+            lienzo.changeColor( new boolean[]{cRojo.isSelected(), true, cAzul.isSelected()});
         }
     }//GEN-LAST:event_cVerdeActionPerformed
 
@@ -313,18 +307,16 @@ public class Interfaz extends javax.swing.JFrame {
             if(cRojo.isSelected() || cVerde.isSelected()){
                 cAzul.setSelected(false);
                 cTodos.setSelected(false);
-                colorsSelected--;
-                lienzo.changeColor(colorsSelected, new boolean[]{cRojo.isSelected(), cVerde.isSelected(), false});
+                lienzo.changeColor( new boolean[]{cRojo.isSelected(), cVerde.isSelected(), false});
             }else{
                 cAzul.setSelected(true);
             }
         }else{
-            colorsSelected++;
             cAzul.setSelected(true);
             if(cRojo.isSelected() && cVerde.isSelected()){
                 cTodos.setSelected(true);
             }
-            lienzo.changeColor(colorsSelected, new boolean[]{cRojo.isSelected(), cVerde.isSelected(), true});
+            lienzo.changeColor( new boolean[]{cRojo.isSelected(), cVerde.isSelected(), true});
         }
     }//GEN-LAST:event_cAzulActionPerformed
 
