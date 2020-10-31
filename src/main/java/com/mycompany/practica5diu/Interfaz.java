@@ -5,19 +5,19 @@
  */
 package com.mycompany.practica5diu;
 
-import java.awt.Color;
-
 /**
  *
  * @author Usuario
  */
 public class Interfaz extends javax.swing.JFrame {
 
+    int colorsSelected;
     /**
      * Creates new form Interfaz
      */
     public Interfaz() {
         initComponents();
+        colorsSelected =3;
     }
 
     /**
@@ -30,13 +30,6 @@ public class Interfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         grupoPosiciones = new javax.swing.ButtonGroup();
-        try {
-            lienzo1 = new com.mycompany.practica5diu.Lienzo();
-        } catch (java.net.MalformedURLException e1) {
-            e1.printStackTrace();
-        } catch (java.io.IOException e2) {
-            e2.printStackTrace();
-        }
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jPanelColores = new javax.swing.JPanel();
         cTodos = new javax.swing.JCheckBox();
@@ -50,22 +43,14 @@ public class Interfaz extends javax.swing.JFrame {
         rbAbajoIzq = new javax.swing.JRadioButton();
         rbAbajoDer = new javax.swing.JRadioButton();
         labelPosicion = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        try {
+            lienzo = new com.mycompany.practica5diu.Lienzo();
+        } catch (java.net.MalformedURLException e1) {
+            e1.printStackTrace();
+        }
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lienzo1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lienzo1.setPreferredSize(new java.awt.Dimension(1024, 768));
-
-        javax.swing.GroupLayout lienzo1Layout = new javax.swing.GroupLayout(lienzo1);
-        lienzo1.setLayout(lienzo1Layout);
-        lienzo1Layout.setHorizontalGroup(
-            lienzo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 787, Short.MAX_VALUE)
-        );
-        lienzo1Layout.setVerticalGroup(
-            lienzo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 678, Short.MAX_VALUE)
-        );
 
         jLayeredPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Configuración"));
 
@@ -73,12 +58,35 @@ public class Interfaz extends javax.swing.JFrame {
 
         cTodos.setSelected(true);
         cTodos.setText("Todos");
+        cTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cTodosActionPerformed(evt);
+            }
+        });
 
+        cVerde.setSelected(true);
         cVerde.setText("Verde");
+        cVerde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cVerdeActionPerformed(evt);
+            }
+        });
 
+        cAzul.setSelected(true);
         cAzul.setText("Azul");
+        cAzul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cAzulActionPerformed(evt);
+            }
+        });
 
+        cRojo.setSelected(true);
         cRojo.setText("Rojo");
+        cRojo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cRojoActionPerformed(evt);
+            }
+        });
 
         labelFiltrado.setText("Filtrar color de la imagen:");
 
@@ -122,6 +130,7 @@ public class Interfaz extends javax.swing.JFrame {
         rbArribaIzq.setText("Esq. Superior Izq.");
 
         grupoPosiciones.add(rbArribaDer);
+        rbArribaDer.setSelected(true);
         rbArribaDer.setText("Esq. Superior Der.");
 
         grupoPosiciones.add(rbAbajoIzq);
@@ -145,7 +154,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(jPanelPosicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelPosicionLayout.createSequentialGroup()
                         .addComponent(rbAbajoDer)
-                        .addContainerGap(12, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanelPosicionLayout.createSequentialGroup()
                         .addGroup(jPanelPosicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(rbAbajoIzq)
@@ -179,47 +188,145 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelColores, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelPosicion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(jPanelPosicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanelColores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanelColores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanelPosicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Imagen"));
+
+        javax.swing.GroupLayout lienzoLayout = new javax.swing.GroupLayout(lienzo);
+        lienzo.setLayout(lienzoLayout);
+        lienzoLayout.setHorizontalGroup(
+            lienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 626, Short.MAX_VALUE)
+        );
+        lienzoLayout.setVerticalGroup(
+            lienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 417, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lienzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(lienzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lienzo1, javax.swing.GroupLayout.PREFERRED_SIZE, 791, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(195, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lienzo1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cTodosActionPerformed
+        if(cTodos.isSelected()){
+            cRojo.setSelected(true);
+            cVerde.setSelected(true);
+            cAzul.setSelected(true);
+            lienzo.changeColor(3,new boolean[]{true, true, true});
+        }
+        cTodos.setSelected(true);
+    }//GEN-LAST:event_cTodosActionPerformed
+
+    private void cRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cRojoActionPerformed
+        if(!cRojo.isSelected()){
+            if(cVerde.isSelected() || cAzul.isSelected()){
+                cRojo.setSelected(false);
+                cTodos.setSelected(false);
+                colorsSelected--;
+                lienzo.changeColor(colorsSelected, new boolean[]{false, cVerde.isSelected(), cAzul.isSelected()});
+            }else{
+                cRojo.setSelected(true);
+            }
+        }else{
+            colorsSelected++;
+            cRojo.setSelected(true);
+            if(cVerde.isSelected() && cAzul.isSelected()){
+                cTodos.setSelected(true);
+            }
+            lienzo.changeColor(colorsSelected, new boolean[]{true, cVerde.isSelected(), cAzul.isSelected()});
+        }
+    }//GEN-LAST:event_cRojoActionPerformed
+
+    private void cVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cVerdeActionPerformed
+        if(!cVerde.isSelected()){
+            if(cRojo.isSelected() || cAzul.isSelected()){
+                cVerde.setSelected(false);
+                cTodos.setSelected(false);
+                colorsSelected--;
+                lienzo.changeColor(colorsSelected, new boolean[]{cRojo.isSelected(), false, cAzul.isSelected()});
+            }else{
+                cVerde.setSelected(true);
+            }
+        }else{
+            colorsSelected++;
+            cVerde.setSelected(true);
+            if(cRojo.isSelected() && cAzul.isSelected()){
+                cTodos.setSelected(true);
+            }
+            lienzo.changeColor(colorsSelected, new boolean[]{cRojo.isSelected(), true, cAzul.isSelected()});
+        }
+    }//GEN-LAST:event_cVerdeActionPerformed
+
+    private void cAzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cAzulActionPerformed
+        if(!cAzul.isSelected()){
+            if(cRojo.isSelected() || cVerde.isSelected()){
+                cAzul.setSelected(false);
+                cTodos.setSelected(false);
+                colorsSelected--;
+                lienzo.changeColor(colorsSelected, new boolean[]{cRojo.isSelected(), cVerde.isSelected(), false});
+            }else{
+                cAzul.setSelected(true);
+            }
+        }else{
+            colorsSelected++;
+            cAzul.setSelected(true);
+            if(cRojo.isSelected() && cVerde.isSelected()){
+                cTodos.setSelected(true);
+            }
+            lienzo.changeColor(colorsSelected, new boolean[]{cRojo.isSelected(), cVerde.isSelected(), true});
+        }
+    }//GEN-LAST:event_cAzulActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,11 +370,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JCheckBox cVerde;
     private javax.swing.ButtonGroup grupoPosiciones;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelColores;
     private javax.swing.JPanel jPanelPosicion;
     private javax.swing.JLabel labelFiltrado;
     private javax.swing.JLabel labelPosicion;
-    private com.mycompany.practica5diu.Lienzo lienzo1;
+    private com.mycompany.practica5diu.Lienzo lienzo;
     private javax.swing.JRadioButton rbAbajoDer;
     private javax.swing.JRadioButton rbAbajoIzq;
     private javax.swing.JRadioButton rbArribaDer;
