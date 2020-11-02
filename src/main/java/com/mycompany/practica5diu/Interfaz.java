@@ -126,16 +126,36 @@ public class Interfaz extends javax.swing.JFrame {
 
         grupoPosiciones.add(rbArribaIzq);
         rbArribaIzq.setText("Esq. Superior Izq.");
+        rbArribaIzq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbArribaIzqActionPerformed(evt);
+            }
+        });
 
         grupoPosiciones.add(rbArribaDer);
         rbArribaDer.setSelected(true);
         rbArribaDer.setText("Esq. Superior Der.");
+        rbArribaDer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbArribaDerActionPerformed(evt);
+            }
+        });
 
         grupoPosiciones.add(rbAbajoIzq);
         rbAbajoIzq.setText("Esq. Inferior Izq.");
+        rbAbajoIzq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbAbajoIzqActionPerformed(evt);
+            }
+        });
 
         grupoPosiciones.add(rbAbajoDer);
         rbAbajoDer.setText("Esq. Inferior Der.");
+        rbAbajoDer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbAbajoDerActionPerformed(evt);
+            }
+        });
 
         labelPosicion.setText("Posición del logotipo:");
 
@@ -208,11 +228,11 @@ public class Interfaz extends javax.swing.JFrame {
         lienzo.setLayout(lienzoLayout);
         lienzoLayout.setHorizontalGroup(
             lienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 626, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         lienzoLayout.setVerticalGroup(
             lienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 417, Short.MAX_VALUE)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -221,15 +241,15 @@ public class Interfaz extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lienzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addComponent(lienzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addComponent(lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(46, 46, 46))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -319,6 +339,30 @@ public class Interfaz extends javax.swing.JFrame {
             lienzo.changeColor( new boolean[]{cRojo.isSelected(), cVerde.isSelected(), true});
         }
     }//GEN-LAST:event_cAzulActionPerformed
+
+    private void rbArribaDerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbArribaDerActionPerformed
+        if(rbArribaDer.isSelected()){
+            lienzo.moveLogo(2);
+        }
+    }//GEN-LAST:event_rbArribaDerActionPerformed
+
+    private void rbArribaIzqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbArribaIzqActionPerformed
+        if(rbArribaIzq.isSelected()){
+            lienzo.moveLogo(1);
+        }
+    }//GEN-LAST:event_rbArribaIzqActionPerformed
+
+    private void rbAbajoIzqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAbajoIzqActionPerformed
+        if(rbAbajoIzq.isSelected()){
+            lienzo.moveLogo(3);
+        }
+    }//GEN-LAST:event_rbAbajoIzqActionPerformed
+
+    private void rbAbajoDerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAbajoDerActionPerformed
+        if(rbAbajoDer.isSelected()){
+            lienzo.moveLogo(4);
+        }
+    }//GEN-LAST:event_rbAbajoDerActionPerformed
 
     /**
      * @param args the command line arguments
